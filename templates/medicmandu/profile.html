@@ -1,0 +1,32 @@
+{% extends 'medicmandu/customer_base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+</style>
+<br><br><br>
+<div style="padding-left:300px;" class="container">
+
+        <div class="col-sm-2 col-md-2">
+            <img src="{% static CustomerProfilePic.url %}"   alt="profile pic" class="img-rounded img-responsive" />
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <blockquote>
+                <p>{{request.user}}</p> <small><cite title="Source Title">{{customer.address}}  <i class="glyphicon glyphicon-map-marker"></i></cite></small>
+            </blockquote>
+            <p> <i class="glyphicon glyphicon-phone"></i> {{customer.mobile}}
+            </p>
+        </div>
+
+</div>
+<br>
+<div style="text-align: center;">
+
+  <a href="/editprofile"><button type="submit" class="btn btn-primary" >editprofile</button></a>
+</div>
+
+
+
+
+{% endblock content %}

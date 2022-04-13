@@ -1,0 +1,52 @@
+<!DOCTYPE html> 
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+ <title>About us : medicmandu</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--Bootstrap CSS-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<style>
+.main{
+ margin-bottom: auto;
+ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+</style>
+
+</head>
+
+
+
+<body style="background-color:white";>
+
+ {%if request.user.is_authenticated%}
+   {% include "medicmandu/user_navbar.html" %}
+ {%else%}
+   {% include "medicmandu/navbar.html" %} 
+ {%endif%}
+ <br>
+<div class="main" style="text-align: center; " >
+
+ <p class="pharmacist2"  style="margin-left:-75% ;text-align: center;">
+  <h1 style="font-size:100%; text-align: center;">Pharmacy name :Chhetrapati Polyclinic</h1>
+ <div id="Pharmacistimage">
+   <img src="{% static "images/Untitled.jpg" %}" alt="something" height="300px" width="300px" >
+</div>
+   ESTD: 2047 BS
+   <br>
+   PAN: 121214545<br>
+   Phone Number : 45444455 <br>
+   pharmacist legal id : 12344564<br>
+</p>
+
+ </div>
+ {% include "medicmandu/footer.html" %}
+</body>
+
+
+</html> 

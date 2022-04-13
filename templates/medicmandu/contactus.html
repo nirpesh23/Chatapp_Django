@@ -1,0 +1,55 @@
+ <!DOCTYPE html> 
+ {% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <title>contact us : medicmandu</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--Bootstrap CSS-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<style>
+ .main{
+  margin-bottom: auto;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ }
+ 
+
+</style>
+
+</head>
+
+
+
+<body style="background-color:white";>
+
+  {%if request.user.is_authenticated%}
+    {% include "medicmandu/user_navbar.html" %}
+  {%else%}
+    {% include "medicmandu/navbar.html" %} 
+  {%endif%}
+<div class="main" style="width:70%;padding-left: 20%; " >
+  {% load crispy_forms_tags %}  
+    <h3 class='alert alert-success' style="background-color:white; color: black; text-align: center; " >Send Us Your Valuable Feedback !</h3>
+    <form method="POST">
+      <!-- Very Important csrf Token -->
+      {% csrf_token %}
+
+
+      {{form.Name|as_crispy_field}}
+      {{form.Email|as_crispy_field}}
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      {{form.Phone|as_crispy_field}}
+      <div id="emailHelp" class="form-text">Please use verified phone number.</div>
+      {{form.Message|as_crispy_field}}
+      </div>
+      <button type="submit" class="btn btn-primary" style="margin-left: 30%;">Submit</button>
+    </form>
+
+  </div>
+  {% include "medicmandu/footer.html" %}
+</body>
+
+
+</html> 
