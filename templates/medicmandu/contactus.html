@@ -29,11 +29,11 @@
   {%else%}
     {% include "medicmandu/navbar.html" %} 
   {%endif%}
-<div class="main" style="width:70%;padding-left: 20%; " >
+<div class="main" style="width: 50%; margin-left: 25%; height:1px;margin-top: 5%;" >
   {% load crispy_forms_tags %}  
-    <h3 class='alert alert-success' style="background-color:white; color: black; text-align: center; " >Send Us Your Valuable Feedback !</h3>
+    <h3 class='alert alert-success' style="background-color:white; color: black; text-align: center; " >Send Us Your Valuable Messagge !</h3>
     <form method="POST">
-      <!-- Very Important csrf Token -->
+
       {% csrf_token %}
 
 
@@ -43,11 +43,11 @@
       {{form.Phone|as_crispy_field}}
       <div id="emailHelp" class="form-text">Please use verified phone number.</div>
       {{form.Message|as_crispy_field}}
-      </div>
-      <button type="submit" class="btn btn-primary" style="margin-left: 30%;">Submit</button>
+     
+      <button type="submit" class="btn btn-primary" style="margin-top: 5%;">Submit</button>
     </form>
-
   </div>
+ 
   {% include "medicmandu/footer.html" %}
 </body>
 

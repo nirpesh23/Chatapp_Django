@@ -1,0 +1,109 @@
+{% extends 'chat/chat_base.html' %}
+{% load static %}
+
+{% block title %}MediChat{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/chat_index.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="back-container">
+    <div class="container-fluid front-container">
+        <div class="back-top"></div>
+        <div class="back-main"></div>
+    </div>
+    <div class="container front-container1">
+        <div class="row chat-top">
+            <div class="col-sm-4 border-right border-secondary">
+                <img src="{% static 'images/Picture3.jpg' %}" width="50px" height="50px" alt="" class="profile-image rounded-circle">
+                <span class="ml-2">{{request.user.username}}</span>
+                
+            </div>
+            <div class="col-sm-8">
+                <img src="{% static 'images/Picture3.jpg' %}" width="50px" height="50px" alt="" class="profile-image rounded-circle">
+                <span class="ml-2">{{user.username}}</span>
+               
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 contacts">
+                <div class="contact-table-scroll">
+                    <table class="table table-hover">
+                        <tbody>
+                            {% if request.user == user.is_staff %}
+                            {% for user in users %}
+                            
+                            <tr>
+                                <td><img src="{% static 'images/Picture3.jpg' %}" width="50px" height="50px" alt="" class="profile-image rounded-circle">
+                                </td>
+                                <td><a href="">{{user.username}}</a></td>
+                            </tr>
+                            
+                            {% endfor %}
+                            {% endif %}
+                            <!-- end -->
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <div class="col-sm-8 message-area">
+                <div class="message-table-scroll">
+                    <table class="table">
+                        <tbody id='chat-body'>
+                            {% for message in messages %}
+                            {% if message.sender == request.user.username %}
+                            <tr>
+                                <td>
+                                    <p class="bg-success p-2 mt-2 mr-5 shadow-sm text-white float-right rounded">
+                                        {{message.message}}
+                                    </p>
+                                </td>
+                                <td>
+                                    <p><small class="p-1 shadow-sm">{{message.timestamp|time:'H:i'}}</small>
+                                    </p>
+                                </td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td>
+                                    <p class="bg-success p-2 mt-2 mr-5 shadow-sm text-white float-left rounded">
+                                        {{message.message}}
+                                    </p>
+                                </td>
+                                <td>
+                                    <p><small class="p-1 shadow-sm">{{message.timestamp|time:'H:i'}}</small>
+                                    </p>
+                                </td>
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <form action="">
+                <div class="row message-box p-3">
+                    
+                        <div class="col-sm-8 ml-5">
+                            <input type="text" class="form-control float-right" id="message_input" placeholder="Write message...">
+
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="control float-right">
+                                <button type='submit' class="btn btn-outline-success" id="chat-message-submit">Send</button>
+                            </div>
+                        </div>
+                    
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+{{user.id|json_script:"json-username"}}
+{{request.user.username|json_script:"json-message-username"}}
+
+<script src="{% static 'js/chat.js' %}"></script>
+{% endblock %}

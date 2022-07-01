@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+
+{% load crispy_forms_tags %}  
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login : MedicMandu</title>
+
+    </style>
+  </head>
+  <body>
+    {% include "medicmandu/navbar.html" %}
+    <div class="container">
+                <form class="box" method="post">
+                  {% csrf_token %}
+                    <h1>Customer Login</h1>
+                    <p class="text-muted"> Please enter your credentials</p>
+                                {{form.username|as_crispy_field}}
+                                {{form.password|as_crispy_field}}
+                     
+                     <button type="submit" class="btn btn-primary" >login</button>
+
+                </form>
+</div>
+<br>
+{% include "medicmandu/footer.html" %}
+  </body>
+</html>

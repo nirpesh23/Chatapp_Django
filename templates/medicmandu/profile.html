@@ -5,16 +5,18 @@
 
 
 </style>
-<br><br><br>
+<br>
 <div style="padding-left:300px;" class="container">
 
         <div class="col-sm-2 col-md-2">
-            <img src="{% static CustomerProfilePic.url %}"   alt="profile pic" class="img-rounded img-responsive" />
+            <!-- <img class="img" src="{% static p.medicine_image.url %}" alt="Medicine pic" height="300px" width="300px" > -->
+            <img src="{% static customer.profle_pic url %}"  class="img-rounded img-responsive" />
         </div>
         <div class="col-sm-4 col-md-4">
-            <blockquote>
-                <p>{{request.user}}</p> <small><cite title="Source Title">{{customer.address}}  <i class="glyphicon glyphicon-map-marker"></i></cite></small>
-            </blockquote>
+          
+                <p> user : {{request.user}}</p> 
+                    <br>Address:{{customer.address}}
+      
             <p> <i class="glyphicon glyphicon-phone"></i> {{customer.mobile}}
             </p>
         </div>

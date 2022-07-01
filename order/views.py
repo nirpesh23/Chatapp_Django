@@ -2,6 +2,7 @@ from django.shortcuts import render
 from customer.views import is_customer
 from django.contrib.auth.decorators import login_required,user_passes_test
 from customer.models import Customer
+from order.forms import ReturnForm
 from .models import Order
 from medicine.models import Medicine 
 # Create your views here.
@@ -23,3 +24,15 @@ def order_view(request):
 
 
 
+def send_returnrequest(request):
+    ReturnForms=ReturnForm()
+    if request.method == 'POST':
+        ReturnForms = ReturnForm(request.POST)
+        if ReturnForms.is_valid():
+            ReturnForms.save()
+            return render(request, 'medicmandu/sent_returnrequest.html')
+    return render(request, 'medicmandu/send_returnrequest.html', {'ReturnForms':ReturnForms})
+
+
+def ReturnPolicy(request):
+    return render(request, 'medicmandu/returnpolicy.html')

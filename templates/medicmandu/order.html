@@ -156,8 +156,11 @@ p {
 
 </style>
 <br>
+<a href="/ReturnPolicy"><button type="submit" class="btn btn-primary" style="margin-left: 80%; margin-bottom: -10% ; width: 12%;" >return request</button></a>
+
 <h3 style="text-align:center;">Thank You For Your Order  <br><strong>{{request.user}}</strong> !</h3> <br><br>
 <div class="container">
+   
     <header class="card-header" style="text-align:center; border-color: aquamarine; "> My Orders / Tracking </header>
 
     {% for Medicine,orders in data %}
@@ -215,6 +218,7 @@ p {
         </div>
     </article><br>
     {%endfor%}
-</div>
-<br><br><br><br><br>
+    
+ </div>
+<br>
 {% endblock content %}

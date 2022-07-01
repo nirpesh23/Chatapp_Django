@@ -91,3 +91,5 @@ def removefromcartview(request,pk):
             response.delete_cookie('Medicine_ids')
         response.set_cookie('Medicine_ids',value)
         return response
+
+

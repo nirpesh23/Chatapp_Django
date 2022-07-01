@@ -26,3 +26,9 @@ class Customer(models.Model):
         return self.user.id
     def __str__(self):
         return self.user.first_name
+
+
+class Prescription(models.Model):
+    # user=models.ForeignKey(Customer , on_delete=models.CASCADE)
+    user_prescription= models.ImageField(upload_to='Prescription/')
+    mobile = models.CharField(max_length=20,null=False)

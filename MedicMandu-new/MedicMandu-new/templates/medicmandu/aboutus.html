@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Aboutus : MedicMandu</title>
+</head>
+
+<body style="background-color: #B3E5FC;align-items: center; text-align: center;  ">
+  {%if request.user.is_authenticated%}
+    {% include "medicmandu/user_navbar.html" %}
+  {%else%}
+    {% include "medicmandu/navbar.html" %}
+  {%endif%}
+  <main class="px-3">
+    <h1>Cover your page.</h1>
+    <p class="lead" >
+        Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.
+        Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own
+        Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own</p>
+        Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own
+        Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own
+        Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own
+        Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own
+        Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own
+        Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own
+        Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own  Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own
+        
+    <p class="lead">
+      <a href="/contactus" class="btn btn-lg btn-secondary fw-bold border-white">click here to contact us</a>
+    </p>
+    <div class="aboutpharmacy&pharmacist"><
+      <a href="/aboutpharmacist" class="btn btn-lg btn-secondary fw-bold border-white">click here to know about us</a>
+
+      <a href="/aboutpharmacy" class="btn btn-lg btn-secondary fw-bold border-white">click here to know about pharmacy</a>
+    </div>
+  </main>
+ 
+</body>
+
+{% include "medicmandu/footer.html" %}
+
+</html>

@@ -1,0 +1,99 @@
+{% extends 'medicmandu/adminmain.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<head>
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    .note {
+      text-align: center;
+      height: 80px;
+      background: grey;
+      color: #fff;
+      font-weight: bold;
+      line-height: 80px;
+    }
+
+    .form-content {
+      padding: 5%;
+      border: 1px solid #ced4da;
+      margin-bottom: 2%;
+    }
+
+    .form-control {
+      border-radius: 1.5rem  1rem;
+      margin-top: 10px;
+    }
+
+    .form-group-image{
+      padding: 5%;
+      border: 1px solid #ced4da;
+      margin-bottom: 2%;
+      border-radius: 1.5rem  1rem;
+      margin-top: 10px;
+
+    }
+
+    .btnSubmit {
+      border: none;
+      border-radius: 1.5rem  1rem;
+      padding: 1%;
+      width: 20%;
+      cursor: pointer;
+      background: #0062cc;
+      color: #fff;
+      margin-top: 10px;
+    }
+
+    .menu {
+      top: 50px;
+    }
+  </style>
+</head>
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="container register-form">
+    <div class="form">
+      <div class="note">
+        <p>Update Medicine </p>
+      </div>
+      <div class="form-content">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              {% render_field MedicineForm.medname class="form-control" placeholder="Medicine Name" %}
+            </div>
+            <div class="form-group">
+              {% render_field MedicineForm.medtype class="form-control" placeholder="Medicine Type" %}
+            </div>
+            <div class="form-group">
+              {% render_field MedicineForm.medmanufacturdate class="form-control" placeholder="MFD" %}
+            </div>
+            <div class="form-group">
+              {% render_field MedicineForm.medexpirydate class="form-control" placeholder="EXPD" %}
+            </div>
+            <div class="form-group">
+              {% render_field MedicineForm.manufacturer class="form-control" placeholder="manufacturer" %}
+            </div>  
+            <div class="form-group">
+              {% render_field MedicineForm.description class="form-control" placeholder="Description" %}
+            </div>
+            <div class="form-group">
+              {% render_field MedicineForm.price class="form-control" placeholder="price" %}
+            </div>
+            <div class="form-group-image">
+              {% render_field MedicineForm.medicine_image class="form-control-medimage" placeholder="medicine_image" %}
+            </div>  
+          </div>
+         </div>  
+        <button type="submit" class="btnSubmit">Update</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+{% endblock content %}

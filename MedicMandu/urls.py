@@ -18,18 +18,21 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from admin import views
 
 from contactuspage.views import contactus_view
 from about.views import about_view , about_Pharmacist , about_Pharmacy
 from pharmacy.views import home_view , afterlogin_view , search_view,payment_success_view
 
 from django.contrib.auth.views import LoginView,LogoutView
-from customer.views import user_signup_view , user_home_view , profileview ,useraddressview, useraddressview2
-from admin.views import admin_dashboard_view , viewcustomer ,updatecustomer ,adminmedicineview ,deletecustomer
-from order.views import order_view 
+from customer.views import user_signup_view , user_home_view , profileview ,useraddressview, useraddressview2 ,editprofile
+from admin.views import admin_dashboard_view , viewcustomer ,updatecustomer ,adminmedicineview ,deletecustomer ,adminaddmedicineview ,deletemedicineview , updatemedicineview , Viewprescription
+from order.views import order_view ,send_returnrequest ,ReturnPolicy
 from cart.views import cartview ,addtocartview , removefromcartview
 from invoice.views import downloadinvoice_view
+from customer.views import sendprescription
+from admin.views import viewbooking , updatebookingview , deleteorderview ,viewReturnrequest
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('contactus/',contactus_view ,name='contactus' ),
@@ -54,6 +57,7 @@ urlpatterns = [
 
     path('order', order_view,name='order'),
     path('profile', profileview,name='profile'),
+    path('editprofile',editprofile,name='editprofile'),
     path('downloadinvoice/<int:orderID>/<int:MedicineID>', downloadinvoice_view,name='downloadinvoice'),
 
     path('useraddress', useraddressview,name='useraddress'),
@@ -65,17 +69,24 @@ urlpatterns = [
     path('deletecustomer/<int:pk>', deletecustomer,name='deletecustomer'),
     path('updatecustomer/<int:pk>', updatecustomer,name='updatecustomer'),
 
-    path('adminmedicines', adminmedicineview,name='admin-products'),
-    # path('admin-add-product', views.admin_add_product_view,name='admin-add-product'),
-    # path('delete-product/<int:pk>', views.delete_product_view,name='delete-product'),
-    # path('update-product/<int:pk>', views.update_product_view,name='update-product'),
-
-    # path('admin-view-booking', views.admin_view_booking_view,name='admin-view-booking'),
-    # path('delete-order/<int:pk>', views.delete_order_view,name='delete-order'),
-    # path('update-order/<int:pk>', views.update_order_view,name='update-order'),
-
-
+    path('adminmedicines', adminmedicineview,name='adminmedicines'),
+    path('adminaddmedicine', adminaddmedicineview,name='adminaddmedicine'),
+    path('deletemedicine/<int:pk>', deletemedicineview,name='deletemedicine'),
+    path('updatemedicine/<int:pk>', updatemedicineview,name='updatemedicine'),
     
+    path('viewbooking', viewbooking,name='viewbooking'),
+    path('deleteorderview/<int:pk>', deleteorderview,name='deleteorderview'),
+    path('updateorder/<int:pk>', updatebookingview,name='updatebookingview'),
+    
+    path('chat/', include('chat.urls')),
+    
+     path('ReturnPolicy', ReturnPolicy,name='ReturnPolicy'),
+    path('send-returnrequest', send_returnrequest,name='send_returnrequest'),
+    path('viewReturnrequest', viewReturnrequest,name='viewReturnrequest'),
+
+    path('sendprescription', sendprescription,name='sendprescription'),
+    path('Viewprescription', Viewprescription,name='Viewprescription'),
+    path('api',include('api.urls')),
     
     ]
 

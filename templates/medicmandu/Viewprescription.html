@@ -1,0 +1,21 @@
+{% extends 'medicmandu/adminmain.html' %}
+{% load static %}
+{% block content %}
+
+<h2 style="text-align:center; color:blue;">requests By User</h2>
+<hr>
+
+
+<div>
+    <h1>Prescriptions</h1>
+    <div>
+      {%for f in Prescriptions%}
+  <strong>{{f.mobile}}</strong><br>
+
+  <img src={{f.user_prescription}} >
+</div>
+</div>
+{%endfor%}
+
+
+{% endblock %}

@@ -7,26 +7,37 @@
 
 <style media="screen">
   .button {
-  display: inline-block;
+  /* display: inline-block;
   border-radius: 4px;
-  background-color: red;
+  background-color: rgb(70, 68, 68);
   border: none;
   color: #FFFFFF;
   text-align: center;
-  font-size: 28px;
-  width: 200px;
+  font-size: 100%;
+  width: 20%;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
+  margin:  10px; */
+    background-color: linear-gradient(to right, rgba(230, 185, 185, 0.897), rgba(255,0,0,1));
+  border-style: outset;
+  color: black;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+   text-decoration: underline; 
+  cursor: pointer;
 }
+.button:hover {opacity: 4}
 
-.button{
- margin:  50px;
- border: black;
-}
 
 h6{
   font-size: 50px;
+  text-decoration: underline;
 }
 tr{
 padding-top: 50px;
@@ -57,7 +68,7 @@ padding-top: 50px;
 
       <tr>
         <td> {{p.medname}}</td>
-        <td> <img src="{% static p.Medicine_image.url %}" alt="Profile Pic" height="40px" width="40px" /></td>
+        <td> <img src="{% static p.medicine_images.url %}" alt="medicine_image" height="40px" width="40px" /></td>
         <td>Rs {{p.price}}</td>
         <td>{{p.description}}</td>
 
@@ -71,7 +82,8 @@ padding-top: 50px;
     </table>
   </div>
 </div>
-<div style="text-align: center;"><p style="font-size: 40px;" >Total Rs {{total}}</p>
+<hr>
+<div style="text-align: center;"><p style="font-size: 20px;" >Total Rs {{total}}</p>
   <a href="/useraddress"><button class="button" ><span>Order for Delivery</span></button></a>
   <a href="/useraddress"><button class="button" ><span>Order for Pickup</span></button></a>
 </div>

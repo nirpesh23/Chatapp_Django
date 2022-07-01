@@ -23,6 +23,23 @@ def user_home_view(request):
     return render(request,'medicmandu/customer_base.html',{'medicines':medicines,'medicine_count_in_cart':medicine_count_in_cart})
 
 
+def editprofile(request):
+    customer=models.Customer.objects.get(user_id=request.user.id)
+    user=models.User.objects.get(id=customer.user_id)
+    userForm=forms.CustomerUserForm(instance=user)
+    customerForm=forms.CustomerForm(request.FILES,instance=customer)
+    mydict={'userForm':userForm,'customerForm':customerForm}
+    if request.method=='POST':
+        userForm=forms.CustomerUserForm(request.POST,instance=user)
+        customerForm=forms.CustomerForm(request.POST,instance=customer)
+        if userForm.is_valid() and customerForm.is_valid():
+            user=userForm.save()
+            user.set_password(user.password)
+            user.save()
+            customerForm.save()
+            return HttpResponseRedirect('profile')
+    return render(request,'medicmandu/editprofile.html',context=mydict)
+
 # shipment address before placing order
 @login_required(login_url='login')
 def useraddressview(request):
@@ -127,4 +144,17 @@ def user_signup_view(request):
         return HttpResponseRedirect('userlogin')
     return render(request,'medicmandu/signup.html',context=mydict)
 
+
+
+
+@login_required(login_url='login')
+@user_passes_test(is_customer)
+def sendprescription(request):
+    PrescriptionF= forms.PrescriptionForm()
+    if request.method=='POST':
+        PrescriptionF=forms.PrescriptionForm(request.POST)
+        if PrescriptionF.is_valid():
+            PrescriptionF.save()
+            return redirect('user-home')
+    return render(request,'medicmandu/sendprescription.html',{'PrescriptionF':PrescriptionF})
 

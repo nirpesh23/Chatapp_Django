@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+
+
+
+    <style >
+      body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(to right, white, #1565c0);
+    text-align: center;
+
+}
+h1{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+row{
+    height: 50px;
+
+}
+
+    </style>
+  </head>
+  <body>
+    {% load crispy_forms_tags %}  
+    {% include "medicmandu/navbar.html" %}
+    <div class="container">
+    <div class="row">
+                <form class="box" method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                    <h1>CUSTOMER SIGNUP</h1>
+                    <p class="text-muted"> Please enter your details to Signup !</p>
+                        {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
+                        {% render_field userForm.last_name class="form-control" placeholder="Last Name" %}
+                        {% render_field userForm.username class="form-control" placeholder="Username" %}
+                        {% render_field userForm.password class="form-control" placeholder="Password" %}
+                        {% render_field customerForm.address class="form-control" placeholder="Address" %}
+                        {% render_field customerForm.mobile class="form-control" placeholder="Mobile" %}
+                        {% render_field customerForm.profile_pic class="form-control" placeholder="Profile pic" %}
+                  
+                        <button type="submit" class="btn btn-primary" >Signup</button>
+                     
+                </form>
+    </div>
+</div>
+<br>
+{% include "medicmandu/footer.html" %}
+  </body>
+</html>

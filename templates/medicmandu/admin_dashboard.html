@@ -8,41 +8,41 @@
 <div class="container" >
 
     <div class="panel panel-primary" >
-      <div class="panel-heading" style="text-align:center;">
-        <h6 class="panel-title">Recent Booklings</h6>
+      <div class="panel-heading" style="text-align:center; background-color: rgb(255, 45, 45);" >
+        <h6 class="panel-title" style="color: black;">Recent Medicine Bookings</h6>
       </div>
       <table class="table table-hover" id="dev-table">
         <thead>
           <tr>
-            <th>Customer Name</th>
-            <th>Customer Mobile</th>
-            <th>Shipment Address</th>
+            <th> Name</th>
+            <th> Mobile</th>
+            <th> Address</th>
             <th>Medicine Name</th>
             <th>Medicine Picture</th>
-            <th>Order Status</th>
+            <th> Status</th>
 
           </tr>
         </thead>
-        {% for medicine,customer,orders in data %}
+        {% for Medicine,Customer,Order in data %}
         <tr>
-          {% for c in customer %}
+          {% for c in Customer %}
           <td> {{c.get_name}}</td>
           <td>{{c.mobile}}</td>
-          <td>{{orders.address}}</td>
+          <td>{{Order.address}}</td>
 
           {% endfor %}
-          {% for p in medicine %}
+          {% for p in Medicine %}
           <td> {{p.medname}}</td>
           <td> <img src="{% static p.medicine_image.url %}" alt="Profile Pic" height="40px" width="40px" /></td>
 
-          {% if orders.status == 'Pending'%}
-          <td> <span class="label label-info">{{orders.status}}</span></td>
-          {% elif orders.status == 'Delivered' %}
-          <td> <span class="label label-success">{{orders.status}}</span></td>
-          {% elif orders.status == 'Out for Delivery' %}
-          <td> <span class="label label-warning">{{orders.status}}</span></td>
+          {% if Order.status == 'Pending'%}
+          <td> <span class="label label-info">{{Order.status}}</span></td>
+          {% elif Order.status == 'Delivered' %}
+          <td> <span class="label label-success">{{Order.status}}</span></td>
+          {% elif Order.status == 'Out for Delivery' %}
+          <td> <span class="label label-warning">{{Order.status}}</span></td>
           {%else%}
-            <td> <span class="label label-primary">{{orders.status}}</span></td>
+            <td> <span class="label label-primary">{{Order.status}}</span></td>
           {%endif%}
           {% endfor %}
         </tr>

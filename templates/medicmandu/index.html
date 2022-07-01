@@ -3,371 +3,371 @@
 {% block content %}
 
 <style media="screen">
-    body,
-html {
-  height: 100%;
-}
 
-.d-flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
 
-.align-center {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
+   body,
+   html {
+   height: 100%;
+   }
+   .d-flex {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   }
+   .align-center {
+   -webkit-box-align: center;
+   -ms-flex-align: center;
+   align-items: center;
+   }
+   .flex-centerY-centerX {
+   justify-content: center;
+   -webkit-box-pack: center;
+   -ms-flex-pack: center;
+   justify-content: center;
+   -webkit-box-align: center;
+   -ms-flex-align: center;
+   align-items: center;
+   }
+    /* body {
+    background-color:white; 
+   }  */
+   .page-wrapper {
+   height: 100%;
+   display: table;
+   }
+   .page-wrapper .page-inner {
+   display: table-cell;
+   vertical-align: middle;
+   }
+   .el-wrapper {
+   width: auto;
+   padding: 15px;
+   margin: 15px auto;
+   margin-top: 10px;
+   /* background-color: #fff; */
+   }
 
-.flex-centerY-centerX {
-  justify-content: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
 
-body {
-  background-color:white;
-}
+   
+   .el-wrapper:hover .price {
+   left: 10px;
+   -webkit-transform: translateY(-50%);
+   -ms-transform: translateY(-50%);
+   -o-transform: translateY(-50%);
+   transform: translateY(-50%);
+   color: white;
+   }
+   .el-wrapper:hover .add-to-cart {
+   left: 50%;
+   }
+   .el-wrapper:hover .img {
+   -webkit-filter: blur(7px);
+   -o-filter: blur(7px);
+   -ms-filter: blur(7px);
+   filter: blur(010x);
+   filter: progid:DXImageTransform.Microsoft.Blur(pixelradius='7', shadowopacity='0.0');
+   opacity: 0.4;
+   }
+   .el-wrapper:hover .info-inner {
+   bottom:105px;
+   }
+   .el-wrapper:hover .a-size {
+   -webkit-transition-delay: 300ms;
+   -o-transition-delay: 300ms;
+   transition-delay: 300ms;
+   bottom: 10px;
+   opacity: 1;
+   }
+   .el-wrapper .box-down {
+   width: 100%;
+   height: 60px;
+   position: relative;
+   overflow: hidden;
+   }
+   .el-wrapper .box-up {
+   width: 100%;
+   height: 100%;
+   position: relative;
+   text-align: center;
+   }
+   .el-wrapper .img {
+   /* padding: 5px ; */
+   -webkit-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+   -moz-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+   -o-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+   transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+   /* ease-out */
+   -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+   -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+   -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+   transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+   /* ease-out */
+   }
+   .h-bg {
+   -webkit-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+   -moz-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+   -o-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+   transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+   /* ease-out */
+   -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+   -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+   -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+   transition-timing-function: cubic-bezier(0, 0, 0.18, 1); 
+   /* ease-out */
+   width: 500px;
+   height: 5%;
+   background-color: black;
+   position: absolute;
 
-.page-wrapper {
-  height: 100%;
-  display: table;
-}
+   }
+   .h-bg .h-bg-inner {
+   width: 50%;
+   height: 140px;
+   background-color: black;
+   }
+   .info-inner {
+   -webkit-transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
+   -moz-transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
+   -o-transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
+   transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
+   /* ease-out */
+   -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+   -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+   -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+   transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+   /* ease-out */
+   position: absolute;
+   width: 100%;
+   }
+   .info-inner .p-name,
+   .info-inner .p-company {
+   display: block;
+   }
+   .info-inner .p-company {
+   font-family:'Times New Roman', Times, serif;
+   font-size: 15px;
+   text-transform: uppercase;
+   color: brown;
+   }
+   .a-size {
+   -webkit-transition: all 300ms cubic-bezier(0, 0, 0.18, 1);
+   -moz-transition: all 300ms cubic-bezier(0, 0, 0.18, 1);
+   -o-transition: all 300ms cubic-bezier(0, 0, 0.18, 1);
+   transition: all 300ms cubic-bezier(0, 0, 0.18, 1);
+   /* ease-out */
+   -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+   -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+   -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+   transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+   /* ease-out */
+   position: absolute;
+   width: 100%;
+   bottom: -10px;
+   font-family: 'PT Sans', sans-serif;
+   color: brown;
+   opacity: 0;
+   }
 
-.page-wrapper .page-inner {
-  display: table-cell;
-  vertical-align: middle;
-}
+   .cart {
+   display: block;
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   }
+   .cart .price {
+   -webkit-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+   -moz-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+   -o-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+   transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+   /* ease-out */
+   -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+   -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+   -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+   transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+   /* ease-out */
+   -webkit-transition-delay: 100ms;
+   -o-transition-delay: 100ms;
+   transition-delay: 100ms;
+   display: block;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   -webkit-transform: translate(-50%, -50%);
+   -ms-transform: translate(-50%, -50%);
+   -o-transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);
+   font-size: 16px;
+   color: white;
+   }
+   .cart .add-to-cart {
+   -webkit-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+   -moz-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+   -o-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+   transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+   /* ease-out */
+   -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+   -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+   -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+   transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+   /* ease-out */
+   -webkit-transition-delay: 100ms;
+   -o-transition-delay: 100ms;
+   transition-delay: 100ms;
+   display: block;
+   position: absolute;
+   top: 50%;
+   left: 70%;
+   -webkit-transform: translate(-50%, -50%);
+   -ms-transform: translate(-50%, -50%);
+   -o-transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);
+   }
+   .cart .add-to-cart .txt {
+   font-size: 12px;
+   color: #fff;
+   letter-spacing: 0.045em;
+   text-transform: uppercase;
+   white-space: nowrap;
+   }
 
-.el-wrapper {
-  width: 360px;
-  padding: 15px;
-  margin: 15px auto;
-  background-color: #fff;
-}
+   * {
+   box-sizing: border-box;
+   }
+   /* Create three equal columns that floats next to each other */
+   .column {
+   float:inline-start;
+   width: 32%;
+   padding: 10px;
+   /* height: 100px; Should be removed. Only for demonstration */
+   }
+   /* Clear floats after the columns */
+   /* .row:after {
+   content: "";
+   display: table;
+   clear: both;
+   } */
+   /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+ 
 
-@media (max-width: 991px) {
-  .el-wrapper {
-    width: 345px;
+   @media (prefers-color-scheme: dark) {
+  body {
+    background-color: rgb(172, 170, 170);
+    color: white;
+    
   }
 }
+/* Style rules for light mode */
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: white;}
 
-@media (max-width: 767px) {
-  .el-wrapper {
-    width: 290px;
-    margin: 30px auto;
+}
+.first-slide{
+  margin-left: 36%;
+}
+
+</style>
+<script>
+
+   
+  function myFunction() {
+    const darkMode = window.matchMedia("(prefers-color-scheme:dark)").matches;
+
   }
-}
-
-.el-wrapper:hover .h-bg {
-  left: 0px;
-}
-
-.el-wrapper:hover .price {
-  left: 20px;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  color: white;
-}
-
-.el-wrapper:hover .add-to-cart {
-  left: 50%;
-}
-
-.el-wrapper:hover .img {
-  -webkit-filter: blur(7px);
-  -o-filter: blur(7px);
-  -ms-filter: blur(7px);
-  filter: blur(010x);
-  filter: progid:DXImageTransform.Microsoft.Blur(pixelradius='7', shadowopacity='0.0');
-  opacity: 0.4;
-}
-
-.el-wrapper:hover .info-inner {
-  bottom:105px;
-}
-
-
-.el-wrapper:hover .a-size {
-  -webkit-transition-delay: 300ms;
-  -o-transition-delay: 300ms;
-  transition-delay: 300ms;
-  bottom: 10px;
-  opacity: 1;
-}
-
-.el-wrapper .box-down {
-  width: 100%;
-  height: 60px;
-  position: relative;
-  overflow: hidden;
-}
-
-.el-wrapper .box-up {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-}
-
-.el-wrapper .img {
-  padding: 20px 0;
-  -webkit-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
-  -moz-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
-  -o-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
-  transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
-  /* ease-out */
-  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-  -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-  -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-  transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-  /* ease-out */
-}
-
-.h-bg {
-  -webkit-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
-  -moz-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
-  -o-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
-  transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
-  /* ease-out */
-  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-  -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-  -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-  transition-timing-function: cubic-bezier(0, 0, 0.18, 1); 
-  /* ease-out */
-  width: 660px;
-  height: 100%;
-  background-color: black;
-  position: absolute;
-  
-}
-
-.h-bg .h-bg-inner {
-  width: 50%;
-  /* height: 140px; */
-  background-color: black;
-}
-
-.info-inner {
-  -webkit-transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
-  -moz-transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
-  -o-transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
-  transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
-  /* ease-out */
-  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-  -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-  -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-  transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-  /* ease-out */
-  position: absolute;
-  width: 100%;
-  bottom: 15px;
-}
-
-.info-inner .p-name,
-.info-inner .p-company {
-  display: block;
-}
-
-
-
-.info-inner .p-company {
-  font-family: 'Lato', sans-serif;
-  font-size: 15px;
-  text-transform: uppercase;
-  color: red;
-}
-
-.a-size {
-  -webkit-transition: all 300ms cubic-bezier(0, 0, 0.18, 1);
-  -moz-transition: all 300ms cubic-bezier(0, 0, 0.18, 1);
-  -o-transition: all 300ms cubic-bezier(0, 0, 0.18, 1);
-  transition: all 300ms cubic-bezier(0, 0, 0.18, 1);
-  /* ease-out */
-  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-  -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-  -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-  transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-  /* ease-out */
-  position: absolute;
-  width: 100%;
-  bottom: -20px;
-  font-family: 'PT Sans', sans-serif;
-  color: #828282;
-  opacity: 0;
-}
-
-.a-size .size {
-  color: #252525;
-}
-
-.cart {
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  font-family: 'Lato', sans-serif;
-  font-weight: 700;
-}
-
-.cart .price {
-  -webkit-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
-  -moz-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
-  -o-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
-  transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
-  /* ease-out */
-  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-  -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-  -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-  transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-  /* ease-out */
-  -webkit-transition-delay: 100ms;
-  -o-transition-delay: 100ms;
-  transition-delay: 100ms;
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  font-size: 16px;
-  color: white;
-}
-
-.cart .add-to-cart {
-  -webkit-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
-  -moz-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
-  -o-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
-  transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
-  /* ease-out */
-  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-  -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-  -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-  transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-  /* ease-out */
-  -webkit-transition-delay: 100ms;
-  -o-transition-delay: 100ms;
-  transition-delay: 100ms;
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 110%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-.cart .add-to-cart .txt {
-  font-size: 12px;
-  color: #fff;
-  letter-spacing: 0.045em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-* {
-  box-sizing: border-box;
-}
-
-/* Create three equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-  }
-}
-  </style>
-
+  </script>
 {%if medicines%}
 <h3 style="text-align:center; color:black;">{{word}}</h3>
 <br>
-<!-- products data start-->
-  <div class="row">
-
-      {% for p in medicines %}
-      <!-- card1 -->
-      <div class="column">
-      <div class="container page-wrapper" style="width: 450px;">
-        <div class="page-inner">
-          <div class="row">
-            <div class="el-wrapper">
-              <div class="box-up">
-                <img class="img" src="{% static p.medicine_image.url %}" alt="Medicine pic" height="300px" width="300px">
-                <div class="img-info">
-                  <div class="info-inner">
-                    <span style="color:red;"class="p-company" >{{p.medname}}</span>
-
-                  </div>
-                  <div class="a-size" style="font-size:12px;">
-                    {{p.description}}
-                    <br>
-                    Medicine Type: {{p.medtype}}<br>
-                    MFD date: {{p.medmanufacturdate}}<br>
-                    Exp:      {{p.medexpirydate}}<br>
-                    Manufacturer: {{p.manufacturer}}<br>
-
-
-                  </div>
-                </div>
-              </div>
-
-              <div class="box-down">
-                <div class="h-bg">
-                  <div class="h-bg-inner"></div>
-                </div>
-
-                <a class="cart" href="{% url 'addtocart' p.id  %}">
-                  <span class="price">Rs {{p.price}}</span>
-                  <span class="add-to-cart">
-                    <span class="txt">cart</span>
-                  </span>
-                </a>
-              </div>
-            </div>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+   <ol class="carousel-indicators">
+     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+     <li data-target="#myCarousel" data-slide-to="1"></li>
+     <li data-target="#myCarousel" data-slide-to="2"></li>
+   </ol>
+   <div class="carousel-inner">
+     <div class="carousel-item active"  >
+       <img class="first-slide" src="{% static 'images/map.png' %}" alt="First slide" height="500px" width="500px">
+       <div class="container">
+         <div class="carousel-caption text-left">
+            <h1 style="color: black;">We are here</h1>
+            <p style="color: black;">You are welcome here</p><p><a class="btn btn-lg btn-primary" href="/aboutpharmacy" role="button">Know more</a></p>
+         </div>
+       </div>
+     </div>
+     
+      <!-- <div class="carousel-item active">
+        <img class="first-slide" src="{% static 'images/map.png' %}" alt="First slide" height="500px" width="500px">
+        <div class="container">
+          <div class="carousel-caption text-left">
+             <h1>Experienced Pharmacist</h1>
+             <p><a class="btn btn-lg btn-primary" href="/aboutpharmacist" role="button">Know more</a></p>
           </div>
         </div>
+      </div> -->
+ 
+   </div>
+   <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+     <span class="sr-only">Previous</span>
+   </a>
+   <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+     <span class="carousel-control-next-icon" aria-hidden="true"></span>
+     <span class="sr-only">Next</span>
+   </a>
+ </div>
+ <hr>
+ <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; padding-left: 10px;">Medicines</h1>
+<div class="row">
+   {% for p in medicines %}
+   
+   <div class="column">
+      <div class="container page-wrapper">
+         <div class="page-inner">
+            <div class="row">
+               <div class="el-wrapper">
+                  <div class="box-up">
+                     <img class="img" src="{% static p.medicine_image.url %}" alt="Medicine pic" height="300px" width="300px" style="border-style: double;  border: 5px solid rgb(238, 236, 236);border-radius: 15%;">
+                     <div class="img-info">
+                        <div class="info-inner">
+                           <span class="p-company"><strong>{{p.medname}}</strong></span>
+                        </div>
+                        <div class="a-size" style="font-size:12px;">
+                           {{p.description}}
+                           <br>
+                           Medicine Type: {{p.medtype}}<br>
+                           MFD date: {{p.medmanufacturdate}}<br>
+                           Exp:      {{p.medexpirydate}}<br>
+                           Manufacturer: {{p.manufacturer}}<br>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="box-down">
+                     <div class="h-bg">
+
+                     </div>
+                     <a class="cart" href="{% url 'addtocart' p.id  %}"> 
+                     <span class="price" style="color: black;">Rs {{p.price}}</span>
+                     <span class="add-to-cart">
+                     <img src="{% static 'images/cart.png' %}" alt="cart" height="40px" width="40px">
+                     </span>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
-      </div>
-
-      {% if forloop.counter|divisibleby:"3" %}
-    </div>
-
-    <div class="row">
-
-          <br>
-{% endif %}
-  {% endfor %}
+   </div>
+   {% if forloop.counter|divisibleby:"3" %}
 </div>
-
+<div class="row">
+   <br>
+   {% endif %}
+   {% endfor %}
+</div>
 <!-- products data end -->
 {%else%}
 <h3 style="text-align:center; color:black;">No Search Found</h3>
 {%endif%}
-
 {% endblock content %}

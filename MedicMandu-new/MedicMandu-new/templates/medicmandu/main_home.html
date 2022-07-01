@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>MedicMandu</title>
+
+</head>
+
+<body>
+  {%if request.user.is_authenticated%}
+    {% include "medicmandu/user_navbar.html" %}
+  {%else%}
+    {% include "medicmandu/navbar.html" %}
+  {%endif%}
+
+
+  {%block content%}
+
+
+  {%endblock content%}
+
+  
+  {% include "medicmandu/footer.html" %}
+</body>
+
+</html>
